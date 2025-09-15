@@ -5,7 +5,6 @@ using CampusLearn.Infrastructure.Repositories;
 using CampusLearn.Infrastructure.Services;
 using CampusLearn.Application.Account;
 using CampusLearn.Domain.Account;
-using CampusLearn.Infrastructure.Account;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CampusLearn.Domain.Account;
+﻿using CampusLearn.Domain.Account;
 
-namespace CampusLearn.Infrastructure.Account
+namespace CampusLearn.Application.Account
 {
     public class AccountFactory : IAccountFactory
     {

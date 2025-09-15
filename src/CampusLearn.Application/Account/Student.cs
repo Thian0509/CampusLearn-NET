@@ -1,7 +1,7 @@
 ﻿using CampusLearn.Domain.Account;
 using CampusLearn.Domain.QA;
 using CampusLearn.Domain.TopicsNS;
-namespace CampusLearn.Infrastructure.Account;
+namespace CampusLearn.Application.Account;
 
 public class Student : User, IAccount
 {

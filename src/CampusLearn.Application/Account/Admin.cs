@@ -1,6 +1,6 @@
 ﻿using CampusLearn.Domain.Account;
 
-namespace CampusLearn.Infrastructure.Account;
+namespace CampusLearn.Application.Account;
 
 public class Admin : User, IAccount
 {
