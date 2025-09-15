@@ -25,4 +25,19 @@ Clean Architecture skeleton matching your UML. MongoDB is used to align with Ass
 - Add auth later using JWT and role-based policies.
 - Repository & Service layers wired via DI.
 
-Generated: 2025-09-14T18:34:04.537424Z
+---
+
+# CampusLearn Project Architecture
+This project is structured using a Clean Architecture approach, with each component serving a distinct purpose. The separation of concerns makes the codebase more organized, maintainable, and testable.
+
+## CampusLearn.Api
+This is the presentation layer and the entry point of the application. It's responsible for handling incoming web requests (like HTTP requests from a browser or another service) and exposing the application's functionality. This project contains the controllers that define the web API endpoints and references the Application project to access the business logic.
+
+## CampusLearn.Application
+This is the application layer. It contains the core business logic, use cases, and application-specific rules. It defines the operations the application can perform, such as "create a course" or "enroll a student," and orchestrates the flow of data between the other layers. This layer depends on the Domain and Infrastructure projects to perform its tasks.
+
+## CampusLearn.Domain
+This is the domain layer or the core of the application. It contains the essential business entities (like Student or Course), value objects, and business rules that are independent of any specific technology. This project is at the center of the architecture and has no dependencies on the other projects, ensuring it remains focused on the business problem.
+
+## CampusLearn.Infrastructure
+This is the infrastructure layer. It handles all the technical details and external dependencies. This includes code for interacting with a database, external services, file systems, or other third-party libraries. This layer is referenced by the Application project to perform tasks like data persistence and by the API project for specific infrastructure-related concerns.
