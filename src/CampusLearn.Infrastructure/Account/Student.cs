@@ -1,26 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CampusLearn.Domain.Account;
+﻿using CampusLearn.Domain.Account;
+using CampusLearn.Domain.QA;
+using CampusLearn.Domain.TopicsNS;
+namespace CampusLearn.Infrastructure.Account;
 
-namespace CampusLearn.Infrastructure.Account
+public class Student : User, IAccount
 {
-    public class Student : IAccount
+
+    public string AcademicBackground { get; set; } = "";
+    public List<Topic> SubscribedTopics { get; set; } = new();
+    public List<Question> InteractionHistory { get; set; } = new();
+    public Topic CreateHelpTopic(string title, string description, string moduleCode) =>
+        new Topic { Title = title, Description = description, ModuleCode = moduleCode, CreatedByUserId = this.Id };
+
+    public Student(string name, int studentId)
     {
-        private readonly string name;
-        private readonly string studentId;
+        Name = name;
+        UserId = studentId;
+    }
 
-        public Student(string name, string studentId)
-        {
-            this.name = name;
-            this.studentId = studentId;
-        }
+    public string GetDetails()
+    {
+        return $"Student: {Name}, ID: {UserId}";
+    }
 
-        public string GetDetails()
-        {
-            return $"Student: {name}, ID: {studentId}";
-        }
+    public void Register()
+    {
+        Console.WriteLine($"User {Name} has registered.");
+    }
+
+    public void LogIn()
+    {
+        Console.WriteLine($"User {Name} has logged in.");
+    }
+
+    public void LogOut()
+    {
+        Console.WriteLine($"User {Name} has logged out.");
+    }
+
+    public void UpdateProfile(string name)
+    {
+        Name = name;
     }
 }

@@ -1,5 +1,5 @@
 using CampusLearn.Domain.Common;
-namespace CampusLearn.Domain.Users;
+namespace CampusLearn.Infrastructure.Account;
 public class User : EntityBase
 {
     public int UserId { get; set; }

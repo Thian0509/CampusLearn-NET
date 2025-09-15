@@ -1,26 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CampusLearn.Domain.Account;
+using CampusLearn.Domain.TopicsNS;
+namespace CampusLearn.Infrastructure.Account;
 
-namespace CampusLearn.Infrastructure.Account
+
+public class Tutor : User, IAccount
 {
-    public class Tutor : IAccount
+    public List<string> AssignedModules { get; set; } = new();
+    public List<Topic> TutorTopics { get; set; } = new();
+    public List<Resource> UploadedResources { get; set; } = new();
+
+    public Tutor(string name, string subject)
     {
-        private readonly string name;
-        private readonly string subject;
+        Name = name;
+        AssignedModules.Add(subject);
+    }
 
-        public Tutor(string name, string subject)
-        {
-            this.name = name;
-            this.subject = subject;
-        }
+    public string GetDetails()
+    {
+        return $"Tutor: {Name}, Subject: {AssignedModules[0]}";
+    }
+    public void Register()
+    {
+        Console.WriteLine($"User {Name} has registered.");
+    }
 
-        public string GetDetails()
-        {
-            return $"Tutor: {name}, Subject: {subject}";
-        }
+    public void LogIn()
+    {
+        Console.WriteLine($"User {Name} has logged in.");
+    }
+
+    public void LogOut()
+    {
+        Console.WriteLine($"User {Name} has logged out.");
+    }
+
+    public void UpdateProfile(string name)
+    {
+        Name = name;
     }
 }
+
