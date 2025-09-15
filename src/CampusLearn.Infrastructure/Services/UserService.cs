@@ -1,9 +1,9 @@
 using System.Security.Cryptography;
 using System.Text;
-using CampusLearn.Domain.Users;
-using CampusLearn.Application.Abstractions;
 using CampusLearn.Infrastructure.Repositories;
 namespace CampusLearn.Infrastructure.Services;
+using CampusLearn.Domain.Account;
+
 public class UserService : IUserService
 {
     private readonly UserRepository _repo;

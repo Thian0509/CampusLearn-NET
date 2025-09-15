@@ -41,7 +41,7 @@ app.MapGet("/", () => Results.Redirect("/swagger"));
 app.MapGet("/create-student", (AccountService service) =>
 {
     //http://localhost:5187/create-student
-    return service.CreateStudentAccount("Alice Johnson", "S12345");
+    return service.CreateStudentAccount("Alice Johnson", 12345);
 });
 
 app.MapGet("/create-tutor", (AccountService service) =>

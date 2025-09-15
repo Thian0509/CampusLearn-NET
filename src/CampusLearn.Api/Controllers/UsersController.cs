@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using CampusLearn.Application.Abstractions;
+using CampusLearn.Domain.Account;
 
 namespace CampusLearn.Api.Controllers;
 

@@ -9,7 +9,7 @@ namespace CampusLearn.Infrastructure.Account
 {
     public class AccountFactory : IAccountFactory
     {
-        public IAccount CreateStudent(string name, string id)
+        public IAccount CreateStudent(string name, int id)
         {
             return new Student(name, id);
         }
@@ -17,6 +17,11 @@ namespace CampusLearn.Infrastructure.Account
         public IAccount CreateTutor(string name, string subject)
         {
             return new Tutor(name, subject);
+        }
+
+        public IAccount CreateAdmin (string name)
+        {
+            return new Admin(name);
         }
     }
 }

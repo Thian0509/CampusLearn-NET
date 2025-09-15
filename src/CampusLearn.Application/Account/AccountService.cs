@@ -17,7 +17,7 @@ namespace CampusLearn.Application.Account
             this.accountFactory = accountFactory;
         }
 
-        public string CreateStudentAccount(string name, string studentId)
+        public string CreateStudentAccount(string name, int studentId)
         {
             // The service uses the abstract factory to create a student.
             IAccount student = accountFactory.CreateStudent(name, studentId);
@@ -29,6 +29,12 @@ namespace CampusLearn.Application.Account
             // The service uses the abstract factory to create a tutor.
             IAccount tutor = accountFactory.CreateTutor(name, subject);
             return tutor.GetDetails();
+        }
+
+        public string CreateAdminAccount(string name)
+        {
+            IAccount admin = accountFactory.CreateAdmin(name);
+            return admin.GetDetails();
         }
     }
 }
