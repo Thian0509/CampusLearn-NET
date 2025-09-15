@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using CampusLearn.Application.Abstractions;
+using CampusLearn.Domain.Account;
 
 namespace CampusLearn.Api.Controllers;
 
@@ -19,3 +19,4 @@ public class UsersController : ControllerBase
         return Ok(new { u.Id, u.Name, u.Email, u.Role });
     }
 }
+//display the result from the register event

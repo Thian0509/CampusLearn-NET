@@ -3,20 +3,18 @@ using CampusLearn.Infrastructure.Config;
 using CampusLearn.Infrastructure.Persistence;
 using CampusLearn.Infrastructure.Repositories;
 using CampusLearn.Infrastructure.Services;
-//This is for the account creation logic
 using CampusLearn.Application.Account;
 using CampusLearn.Domain.Account;
-using CampusLearn.Infrastructure.Account;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<MongoSettings>(builder.Configuration.GetSection("Mongo"));
 builder.Services.AddSingleton<MongoContext>();
 
-builder.Services.AddSingleton<UserRepository>();
+builder.Services.AddSingleton<UserRepository>(); // dont know yet
 builder.Services.AddSingleton<TopicRepository>();
 
-builder.Services.AddSingleton<IUserService, UserService>();
+builder.Services.AddSingleton<IUserService, UserService>(); // register tasks etc
 builder.Services.AddSingleton<ITopicService, TopicService>();
 
 builder.Services.AddControllers();
@@ -41,7 +39,7 @@ app.MapGet("/", () => Results.Redirect("/swagger"));
 app.MapGet("/create-student", (AccountService service) =>
 {
     //http://localhost:5187/create-student
-    return service.CreateStudentAccount("Alice Johnson", "S12345");
+    return service.CreateStudentAccount("Alice Johnson", 12345);
 });
 
 app.MapGet("/create-tutor", (AccountService service) =>

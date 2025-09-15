@@ -1,5 +1,5 @@
 using MongoDB.Driver;
-using CampusLearn.Domain.Users;
+using CampusLearn.Domain.Account;
 using CampusLearn.Infrastructure.Persistence;
 namespace CampusLearn.Infrastructure.Repositories;
 public class UserRepository

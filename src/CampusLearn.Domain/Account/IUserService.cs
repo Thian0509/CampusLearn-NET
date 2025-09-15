@@ -1,5 +1,4 @@
-using CampusLearn.Domain.Users;
-namespace CampusLearn.Application.Abstractions;
+namespace CampusLearn.Domain.Account;
 public interface IUserService
 {
     Task<User> RegisterAsync(string name, string email, string password, string role);
