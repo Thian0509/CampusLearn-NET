@@ -1,0 +1,19 @@
+Business Classes Analysis 
+User (Abstract,Base)
+•	Id, Name, Email, (audit: CreatedAt, UpdatedAt)
+•	Update to UpdateProfile(name)
+•	Relationships with Base class → Student, Tutor, Admin (inheritance). Authors Posts/Questions/Responses
+•	Registration and profile management is role based
+Student: User
+•	StudentNo (or student identifier)
+•	Subscribe/unsubscribe Topic/Tutor; create Question, create Submission
+•	The Relationships are Associated with Enrollment
+Tutor: User
+•	StaffNo/Department, UploadedResources
+•	Respond to Questions (answers/feedback), upload/manage Learning Materials, grade Submissions
+•	The Relationships Collaborates on Topics, owns Resources, posts Responses
+Admin: Users
+•	Moderation/audit flags/logs
+•	The Behavior approvers tutors, moderate’s forums and deactivates users 
+•	Has a relationship with high level users
+•	A public forum moderation with security.
