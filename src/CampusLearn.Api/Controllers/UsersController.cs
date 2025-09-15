@@ -19,3 +19,4 @@ public class UsersController : ControllerBase
         return Ok(new { u.Id, u.Name, u.Email, u.Role });
     }
 }
+//display the result from the register event
