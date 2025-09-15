@@ -3,10 +3,7 @@ using CampusLearn.Infrastructure.Config;
 using CampusLearn.Infrastructure.Persistence;
 using CampusLearn.Infrastructure.Repositories;
 using CampusLearn.Infrastructure.Services;
-
-using CampusLearn.Application;
-using CampusLearn.Domain;
-using CampusLearn.Infrastructure;
+//This is for the account creation logic
 using CampusLearn.Application.Account;
 using CampusLearn.Domain.Account;
 using CampusLearn.Infrastructure.Account;
