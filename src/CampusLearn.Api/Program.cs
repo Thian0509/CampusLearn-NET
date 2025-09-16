@@ -1,28 +1,13 @@
-using CampusLearn.Application.Abstractions;
-using CampusLearn.Infrastructure.Config;
-using CampusLearn.Infrastructure.Persistence;
-using CampusLearn.Infrastructure.Repositories;
 using CampusLearn.Infrastructure.Services;
 using CampusLearn.Application.Account;
-using CampusLearn.Domain.Account;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.Configure<MongoSettings>(builder.Configuration.GetSection("Mongo"));
-builder.Services.AddSingleton<MongoContext>();
-
-builder.Services.AddSingleton<UserRepository>(); // dont know yet
-builder.Services.AddSingleton<TopicRepository>();
-
-builder.Services.AddSingleton<IUserService, UserService>(); // register tasks etc
-builder.Services.AddSingleton<ITopicService, TopicService>();
+builder.Services.AddInfrastructureServices(builder.Configuration); // Dependencie Injection
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddTransient<IAccountFactory, AccountFactory>();
-builder.Services.AddTransient<AccountService>(); // Register the service that uses the factory
 
 var app = builder.Build();
 
