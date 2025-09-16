@@ -23,7 +23,6 @@ app.MapGet("/", () => Results.Redirect("/swagger"));
 // Example usage in an API endpoint (in a controller)
 app.MapGet("/create-student", (AccountService service) =>
 {
-    //http://localhost:5187/create-student
     return service.CreateStudentAccount("Alice Johnson", 12345);
 });
 
