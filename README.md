@@ -227,3 +227,73 @@ Clean Architecture skeleton matching your UML. MongoDB is used to align with Ass
   <h2>Conclusion</h2>
   <p>The CampusLearn™ database schema, designed with a balance of normalization and denormalization, provides a stable and scalable foundation for the platform. Through the implementation of JSON Schema validators and unique indexes, and the demonstration of CRUD operations and aggregation queries, the design proves its capability to handle real-world operations while maintaining data integrity and efficiency.</p>
 </details>
+
+---
+
+<details>
+<summary><b> Assignment 3 – System Architecture Design Specification </b></summary>
+  
+<h2>Architectural Style: Layered Architecture 🏛️</h2>
+<p>The group chose a **Layered Architecture**, a **non-monolithic** style that organizes the system into distinct, horizontal layers. Each layer has a specific responsibility and depends only on the layer directly beneath it. This ensures that the system is a single, deployable unit while still being modular and allowing for independent development and scaling of each layer. The system will be a **web-based application**, accessible via standard browsers on both desktop and mobile devices.</p>
+
+<h3>System Layers</h3>
+<p></p>
+<ol>
+  <li>**Presentation Layer**: Responsible for **user interaction**. It provides the web-based UI for users to access the system.</li>
+  <li>**Application/Business Layer**: Manages the core logic of the application, including user registration, topic management, tutoring, and the AI chatbot. It handles requests from the UI and coordinates data operations.</li>
+  <li>**Data Access Layer**: Handles all **database queries, API integrations**, and storage logic. It abstracts the database from the higher layers, managing communication between the business logic and the database.</li>
+  <li>**Database/Storage Layer**: Stores and retrieves all data for users, topics, messages, and resources. **MongoDB** was chosen for its scalability and flexibility with semi-structured data.</li>
+</ol>
+
+<h3>Communication Methods</h3>
+<p>Communication between the layers is primarily done via **RESTful APIs** between the frontend (Presentation Layer) and the backend (Application/Business Layer).</p>
+
+<hr>
+
+<h2>Design Patterns</h2>
+
+<h3>Creational</h3>
+<ul>
+  <li><strong>Singleton</strong> – Ensures a class has only one instance and provides a global point of access to it.</li>
+  <li><strong>Factory</strong> - Defines an interface for creating a single object but lets subclasses decide which class to instantiate.</li>
+</ul>
+
+<h3>Structural</h3>
+<ul>
+  <li><strong>Adapter</strong> - Allows objects with incompatible interfaces to work together.</li>
+</ul>
+
+<h3>Behavioural</h3>
+<ul>
+  <li><strong>Strategy</strong> - Defines a family of algorithms, encapsulates each one, and makes them interchangeable.</li>
+  <li><strong>Observer</strong> - Defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.</li>
+</ul>
+
+<h2>Justification of Chosen Architecture</h2>
+
+<h3>Why Layered Architecture Was Chosen 🚀</h3>
+<ul>
+  <li>**Clarity & Speed for a Small Team**: The strict separation of layers reduces ambiguity, making it clear where specific code should live.</li>
+  <li>**Maintainability & Testability**: Business logic is separated from database concerns, enabling fast unit tests and safe migrations.</li>
+  <li>**Scalability**: Layers can be scaled independently. For example, if user numbers increase, only the database or business layer might need to be scaled up.</li>
+  <li>**Modularity**: Features like the AI chatbot or forum are independent services within the Business Layer.</li>
+  <li>**Extensibility**: New APIs can be integrated into the Data Access Layer without a full system overhaul.</li>
+  <li>**Future-Proof Enough**: While starting simple, this architecture allows for future extraction of specific services (e.g., a dedicated forum service) if needed.</li>
+</ul>
+
+<h3>Why Other Architectures Were Not Chosen 🚫</h3>
+<ul>
+  <li>**Microservices**: Too operationally heavy for this scale, requiring complex service discovery and CI/CD pipelines.</li>
+  <li>**Service-Oriented Architecture (SOA)**: Unnecessary governance and middleware overhead for a single product.</li>
+  <li>**Serverless**: Complicates stateful flows and introduces cold-start latency issues, which are not ideal for immediate user experience needs.</li>
+  <li>**Event-Driven Architecture (EDA)**: Best for side effects, not for the core user experience that requires immediate confirmation.</li>
+  <li>**Monolithic**: Blurs responsibilities, making testing and maintenance difficult.</li>
+</ul>
+
+<hr>
+
+<h2>Conclusion ✅</h2>
+<p>Layered Architecture provides a stable and scalable foundation for CampusLearn. It's the most practical choice for a small team, enabling the fastest and safest path to project completion while aligning perfectly with the chosen MongoDB data model and leaving the door open for future growth.</p>
+
+
+</details>
